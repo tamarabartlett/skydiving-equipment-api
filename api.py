@@ -3,7 +3,6 @@ from flask import request, jsonify
 
 
 app = flask.Flask(__name__)
-app.config["DEBUG"] = True
 
 parachutes = [
        {'brand': 'Performance Designs',
@@ -37,9 +36,11 @@ parachutes = [
 def home():
     return "<h1>My Skydiving Equipment</h1><p>Prototype API to return info about my skydiving equipment</p>"
 
+
 @app.route('/api/v1/equipment/parachutes/all', methods=['GET'])
 def parachutes_all():
     return jsonify(parachutes)
+
 
 @app.route('/api/v1/equipment/parachutes', methods=['GET'])
 def parachute():
@@ -57,4 +58,5 @@ def parachute():
     return jsonify(results)
 
 
-app.run()
+if __name__ == '__main__':
+    app.run(debug=True)
