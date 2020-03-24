@@ -11,9 +11,10 @@ parachutes = [
         'nickname': 'Dave White',
         'colors': ['pink', 'black'],
         'serial_number': 0,
-        # 'jumps'
-        # 'DOM'
-        # 'date_bought'
+        'jumps': '200',
+        'DOM': '2019',
+        'date_bought': '07/2019',
+        'date_updated': '07/2019',
         },
        {'brand': 'Performance Designs',
         'model': 'Sabre 2',
@@ -59,4 +60,4 @@ def parachute():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

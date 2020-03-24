@@ -20,6 +20,35 @@ def test_get_parachute_no_serial_number():
     assert response.status_code == 200
     assert response.data == b'Error: No serial_number field provided. Please specify an serial_number.'
 
+def test_parachute_fields():
+    response = app.test_client().get('/api/v1/equipment/parachutes?serial_number=0')
+
+    assert response.status_code == 200
+    jsonData = json.loads(response.data)
+    parachute = jsonData[0]
+
+    serial_number_key = 'serial_number' in parachute
+    brand_key = 'brand' in parachute
+    model_key = 'model' in parachute
+    size_key = 'size' in parachute
+    nickname_key = 'nickname' in parachute
+    colors_key = 'colors' in parachute
+    jumps_key = 'jumps' in parachute
+    DOM_key = 'DOM' in parachute
+    date_bought_key = 'date_bought' in parachute
+    date_updated_key = 'date_updated' in parachute
+
+    assert serial_number_key == True
+    assert brand_key == True
+    assert model_key == True
+    assert size_key == True
+    assert nickname_key == True
+    assert colors_key == True
+    assert jumps_key == True
+    assert DOM_key == True
+    assert date_bought_key == True
+    assert date_updated_key == True
+
 
 if __name__ == '__main__':
     unittest.main()

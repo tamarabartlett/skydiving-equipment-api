@@ -9,5 +9,18 @@ python 3.7.0
 `pip3 install flask`
 `pip3 install pytest`
 
+## To Test
+`pytest`
+
 ## To Run
-`python api.py`
+`export FLASK_APP=api.py`
+`flask run`
+
+
+#API
+### /
+Homesite
+### /api/v1/equipment/parachutes/all
+GET all parachutes
+### /api/v1/equipment/parachutes?serial_number={SERIAL_NUMBER}
+GET parachute with serial number SERIAL_NUMBER
