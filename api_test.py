@@ -49,6 +49,25 @@ def test_parachute_fields():
     assert date_bought_key == True
     assert date_updated_key == True
 
+def test_aads_fields():
+    response = app.test_client().get('/api/v1/equipment/aads/all')
+
+    assert response.status_code == 200
+    jsonData = json.loads(response.data)
+    aad = jsonData[0]
+
+    serial_number_key = 'serial_number' in aad
+    brand_key = 'brand' in aad
+    DOM_key = 'DOM' in aad
+    date_bought_key = 'date_bought' in aad
+    date_updated_key = 'date_updated' in aad
+
+    assert serial_number_key == True
+    assert brand_key == True
+    assert DOM_key == True
+    assert date_bought_key == True
+    assert date_updated_key == True
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -35,6 +35,19 @@ components:
           type: string
         date_updated:
           type: string
+    aad:
+      type: object
+      properties:
+        serial_number:
+          type: string
+        brand:
+          type: string
+        DOM:
+          type: string
+        date_bought:
+          type: string
+        date_updated:
+          type: string
 paths:
   /:
     get:

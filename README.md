@@ -24,3 +24,5 @@ Homesite
 GET all parachutes
 ### /api/v1/equipment/parachutes?serial_number={SERIAL_NUMBER}
 GET parachute with serial number SERIAL_NUMBER
+### /api/v1/equipment/aads/all
+GET all aads

@@ -46,6 +46,22 @@ parachutes = [
          }
 ]
 
+aads = [
+    {
+        'serial_number':'40832',
+        'brand':'Cypress',
+        'DOM':'1/2008',
+        'date_bought':'2/2016',
+        'date_updated':'2/2016'
+    },{
+        'serial_number':'25266',
+        'brand':'Vigil 2',
+        'DOM':'7/2011',
+        'date_bought':'4/2017',
+        'date_updated':'2/2016'
+    }
+]
+
 
 @app.route('/', methods=['GET'])
 def home():
@@ -71,6 +87,11 @@ def parachute():
             results.append(parachute)
 
     return jsonify(results)
+
+
+@app.route('/api/v1/equipment/aads/all', methods=['GET'])
+def aads_all():
+    return jsonify(aads)
 
 
 if __name__ == '__main__':
