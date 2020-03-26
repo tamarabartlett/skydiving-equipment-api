@@ -1,0 +1,56 @@
+openapi: 3.0.0
+info:
+  description: API to get info about my skydiving equipment
+  version: 1.0.0
+  title: Tamara's Skydiving Equipment
+  contact:
+    email: tamjbart@gmail.com
+  license:
+    name: MIT
+    url: 'https://opensource.org/licenses/MIT'
+components:
+  schemas:
+    parachute:
+      type: object
+      properties:
+        serial_number:
+          type: string
+        brand:
+          type: string
+        size:
+          type: integer
+        model:
+          type: string
+        nickname:
+          type: string
+        colors:
+          type: array
+          items:
+            type: string
+        jumps:
+          type: integer
+        DOM:
+          type: string
+        date_bought:
+          type: string
+        date_updated:
+          type: string
+paths:
+  /:
+    get:
+      summary: Home path
+      responses:
+        '200':
+          description: Successful response
+  /api/v1/equipment/parachutes/all:
+    get:
+      description: Get all parachutes
+      responses:
+        '200':
+          description: A list of pets.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/parachute'

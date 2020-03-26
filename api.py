@@ -1,8 +1,22 @@
 import flask
 from flask import request, jsonify
+from flask_swagger_ui import get_swaggerui_blueprint
 
 
 app = flask.Flask(__name__)
+
+### swagger specific ###
+SWAGGER_URL = '/swagger'
+API_URL = '/static/swagger.yaml'
+SWAGGERUI_BLUEPRINT = get_swaggerui_blueprint(
+    SWAGGER_URL,
+    API_URL,
+    config={
+        'app_name': ""
+    }
+)
+app.register_blueprint(SWAGGERUI_BLUEPRINT, url_prefix=SWAGGER_URL)
+
 
 parachutes = [
        {'brand': 'Performance Designs',
